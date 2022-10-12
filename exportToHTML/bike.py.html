@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>bike.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+bike.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># this is bike class</span>
+
+<span class="s2">class </span><span class="s1">Bike:</span>
+
+    <span class="s1">__num: int = </span><span class="s3">0</span>
+    <span class="s1">__current: int = </span><span class="s3">1</span>
+    <span class="s1">__wheels: int = </span><span class="s3">1</span>
+    <span class="s1">__brake = [</span><span class="s4">&quot;hand brakes&quot;</span><span class="s2">, </span><span class="s4">&quot;foot brakes&quot;</span><span class="s1">]</span>
+
+    <span class="s2">def </span><span class="s1">__init__(self</span><span class="s2">,</span>
+                 <span class="s1">num=</span><span class="s3">0</span><span class="s2">,</span>
+                 <span class="s1">current=</span><span class="s3">1</span><span class="s2">,</span>
+                 <span class="s1">wheels=</span><span class="s3">1</span><span class="s2">,</span>
+                 <span class="s1">brake=</span><span class="s2">None</span><span class="s1">):</span>
+
+        <span class="s0"># Set all our properties</span>
+        <span class="s2">if </span><span class="s1">brake </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">brake = []</span>
+        <span class="s1">self.setNum(num)</span>
+        <span class="s1">self.setCurrent(current)</span>
+        <span class="s1">self.setWheels(wheels)</span>
+        <span class="s1">self.setBrake(brake)</span>
+
+<span class="s0"># set and number of gears</span>
+    <span class="s2">def </span><span class="s1">setNum(self</span><span class="s2">, </span><span class="s1">num: int) -&gt; </span><span class="s2">None</span><span class="s1">:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">num = int(num)</span>
+            <span class="s2">if </span><span class="s1">num &gt; </span><span class="s3">15 </span><span class="s2">or </span><span class="s1">num &lt; </span><span class="s3">0</span><span class="s1">:</span>
+                <span class="s2">raise </span><span class="s1">ValueError(</span><span class="s4">'Number of gears must be between 1-15'</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">self.__num = int(num)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">num:</span>
+                <span class="s1">self.__num = num</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+    <span class="s2">def </span><span class="s1">getNum(self) -&gt; int:</span>
+        <span class="s2">return </span><span class="s1">self.__num</span>
+
+
+<span class="s0"># set and get current gear</span>
+    <span class="s2">def </span><span class="s1">setCurrent(self</span><span class="s2">, </span><span class="s1">current: int) -&gt; </span><span class="s2">None</span><span class="s1">:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">current &lt;= self.__num:</span>
+                <span class="s1">self.__current = int(current)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s2">raise </span><span class="s1">ValueError(</span><span class="s4">'Current gear cannot exceed the number of gears'</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">current:</span>
+                <span class="s1">self.__current = current</span>
+
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+    <span class="s2">def </span><span class="s1">getCurrent(self) -&gt; int:</span>
+        <span class="s2">return </span><span class="s1">self.__current</span>
+
+<span class="s0"># set and get number of wheels</span>
+    <span class="s2">def </span><span class="s1">setWheels(self</span><span class="s2">, </span><span class="s1">wheels: int) -&gt; </span><span class="s2">None</span><span class="s1">:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">wheels == </span><span class="s3">1</span><span class="s1">:</span>
+                <span class="s1">wheels = int(wheels)</span>
+                <span class="s1">print(</span><span class="s4">&quot;Number of wheels is 1&quot;</span><span class="s1">)</span>
+            <span class="s2">elif </span><span class="s1">wheels ==</span><span class="s3">2</span><span class="s1">:</span>
+                <span class="s1">wheels = int(wheels)</span>
+                <span class="s1">print(</span><span class="s4">&quot;Number of wheels is 2&quot;</span><span class="s1">)</span>
+            <span class="s2">elif </span><span class="s1">wheels == </span><span class="s3">3</span><span class="s1">:</span>
+                <span class="s1">wheels = int(wheels)</span>
+                <span class="s1">print(</span><span class="s4">&quot;Number of wheels is 3&quot;</span><span class="s1">)</span>
+            <span class="s2">elif </span><span class="s1">wheels == </span><span class="s3">4</span><span class="s1">:</span>
+                <span class="s1">wheels = int(wheels)</span>
+                <span class="s1">print(</span><span class="s4">&quot;Number of wheels is 4&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s2">raise </span><span class="s1">ValueError(</span><span class="s4">'The bike can only have 1, 2, 3, or 4 wheels.'</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">wheels:</span>
+                <span class="s1">self.__wheels = wheels</span>
+
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+<span class="s0">#get and set brake type</span>
+    <span class="s2">def </span><span class="s1">setBrake(self</span><span class="s2">, </span><span class="s1">brake: list) -&gt; </span><span class="s2">None</span><span class="s1">:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">brake:</span>
+                <span class="s1">self.__brake = brake</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+
+    <span class="s2">def </span><span class="s1">getBrake(self) -&gt; list:</span>
+        <span class="s2">return </span><span class="s1">self.__brake</span>
+
+    <span class="s2">def </span><span class="s1">increase(self</span><span class="s2">, </span><span class="s1">current: int = </span><span class="s3">0</span><span class="s1">) -&gt; int:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s1">self.getCurrent() + </span><span class="s3">1</span>
+<span class="s0"># takes a parameter, hours, and multiplies this by the rate</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s2">raise </span><span class="s1">e</span>
+</pre>
+</body>
+</html>

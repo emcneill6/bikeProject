@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#</span>
+<span class="s0"># Number of Gears -</span>
+    <span class="s0"># a whole number</span>
+    <span class="s0"># require that the number of wheels be entered and say that there is an error if there is not an input</span>
+
+<span class="s0"># Current Geae</span>
+    <span class="s0"># default set to 1</span>
+
+<span class="s0">#Number of Wheels</span>
+    <span class="s0"># can accept 1, 2, 3, or 4 wheels is acceptable</span>
+    <span class="s0"># any other integer or string etc entered should return an error</span>
+    <span class="s0"># require that the number of wheels be entered and say that there is an error if there is not an input</span>
+
+<span class="s0">#Brake Type</span>
+    <span class="s0"># either &quot;hand brakes&quot; or &quot;foot brakes&quot;</span>
+    <span class="s0"># require that the number of wheels be entered and say that there is an error if there is not an input</span>
+
+<span class="s0">#Set &amp; Get Number of Gears (2 points)</span>
+<span class="s0"># Set &amp; Get Current Gear (2 points)</span>
+    <span class="s0"># this default value is 1, but any point you can change the gear to a valid number (1-15)</span>
+<span class="s0"># Set &amp; Get Number of Wheels (2 points)</span>
+    <span class="s0"># the default is</span>
+<span class="s0"># Set &amp; Get Brake Type (2 points)</span>
+
+<span class="s0"># once your bike is created,</span>
+<span class="s0">#Reset Gears: Set gear back to 1 (1 point)</span>
+        <span class="s0">#myBike.resetGear</span>
+<span class="s0"># Increase Gear: Increase Current Gear by 1, do not allow going over Number of Gears (1 point)</span>
+<span class="s0"># myBike.increaseGear</span>
+<span class="s0"># Decrease Gear: Decrease Current Gear by 1, do not allow going under 1</span>
+<span class="s0"># if you are at gear 15, then you can't increase the gear anymore</span>
+    <span class="s0"># you should never go above the number of gears set in the numberOfGears method</span>
+
+<span class="s2">from </span><span class="s1">bike </span><span class="s2">import </span><span class="s1">Bike</span>
+
+<span class="s2">try</span><span class="s1">:</span>
+
+    <span class="s1">myBike = Bike()</span>
+    <span class="s1">myBike.setNum(</span><span class="s3">11</span><span class="s1">)</span>
+    <span class="s1">myBike.setCurrent(</span><span class="s3">10</span><span class="s1">)</span>
+
+    <span class="s1">print(</span><span class="s4">f&quot;Current gear is </span><span class="s2">{</span><span class="s1">myBike.getCurrent()</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s1">)</span>
+
+    <span class="s1">myBike.increase()</span>
+
+    <span class="s1">print(myBike.increase())</span>
+
+    <span class="s1">myBike.setWheels(</span><span class="s3">5</span><span class="s1">)</span>
+
+
+<span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+    <span class="s1">print(</span><span class="s4">f&quot;Got an error: </span><span class="s2">{</span><span class="s1">e</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s1">)</span></pre>
+</body>
+</html>
